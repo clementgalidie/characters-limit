@@ -3,10 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Letters limit</title>
-	<link rel="stylesheet" href="asset/css/styles.css">
+	<link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-	<textarea id="message" cols="30" rows="10" placeholder="Write your message."></textarea>
+	<div class="message">
+		<textarea class="message-content" id="message" cols="30" rows="10" placeholder="Write your message."></textarea>
+		<span class="message-lettersCounter">150</span>
+	</div>
 	<script src="assets/js/letters-limit.js"></script>
 </body>
 </html>
