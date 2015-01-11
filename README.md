@@ -13,3 +13,8 @@ This is a very simple bunch of **JavaScript** lines code to set a limit on the n
 | Opera                           | 26.0     | :white_check_mark: |
 | Safari                          | 8.0.2    | :white_check_mark: |
 | Internet Explorer               | 11       | :white_check_mark: |
+
+## Todo
+* Don't set `disable` attribute on `<textarea></textarea>` even if the maximum number of letters has been reached.
+* Find a way to increment the counter when users remove some characters.
+* Find a way to correctly increment the counter when users copy several words.
