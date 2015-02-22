@@ -17,6 +17,8 @@ body {margin: 0;}
 .message-content {
 	width: 100%;
 	resize: vertical;
+	font-family: inherit;
+	font-size: inherit;
 	box-sizing: border-box;
 }
 

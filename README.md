@@ -1,4 +1,4 @@
-# Letters limit
+# Characters limit
 
 This is a very simple bunch of **JavaScript** lines code to set a limit on the number of characters you can write in a `<textarea></textarea>`.
 

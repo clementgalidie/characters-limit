@@ -5,15 +5,15 @@
 	var textAreaCounter = document.querySelector('.message-counter');
 	var sendMessage = document.querySelector('.message-send');
 
-	var countChars = function () {
-		var numberOfChars = this.value.length; // Get the number of characters typed in the <textarea>.
-		var max = 150 - numberOfChars; // Counter for the number of characters.
-		textAreaCounter.innerHTML = max; // Update the counter when the user add or delete some characters.
+	function countChars (element, max) {
+		var numberOfChars = element.value.length; // Get the number of characters typed in the <textarea>.
+		var counter = max - numberOfChars; // Counter for the number of characters.
+		textAreaCounter.innerHTML = counter; // Update the counter when the user add or delete some characters.
 		/*
 		 * If the max number of characters is exceeded, disable the submit input and change the colour of the counter.
 		 * Else, enable the submit input and set the colour of the counter to its initial value.
 		 */
-		if (max < 0) {
+		if (counter < 0) {
 			textAreaCounter.classList.add('message-counter--warning');
 			sendMessage.setAttribute('disabled', 'disabled');
 		} else {
@@ -23,6 +23,8 @@
 	}
 
 	// When the user released a key, run countChars function.
-	textArea.addEventListener('keyup', countChars);
+	textArea.addEventListener('keyup', function () {
+		countChars(textArea, 150);
+	});
 
 })();
