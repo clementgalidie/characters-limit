@@ -1,22 +1,28 @@
 (function () {
-	"use strict";
+	'use strict';
 
-	var textArea = document.getElementById("message");
-	var textAreaCounter = document.querySelector(".message-lettersCounter");
-	var maxLettersNumber = "150" // Set the maximum number of letters user can write.
+	var textArea = document.querySelector('.message-content');
+	var textAreaCounter = document.querySelector('.message-counter');
+	var sendMessage = document.querySelector('.message-send');
 
-	// Function to count the number of letters.
-	var countLetters = function () {
-		maxLettersNumber--;
-		textAreaCounter.textContent = maxLettersNumber;
-
-		// If the user has written more than 150 characters, then disable textarea.
-		if (maxLettersNumber < 0) {
-			textArea.setAttribute("disabled", "disabled");
-			textAreaCounter.textContent = 0;
+	var countChars = function () {
+		var numberOfChars = this.value.length; // Get the number of characters typed in the <textarea>.
+		var max = 150 - numberOfChars; // Counter for the number of characters.
+		textAreaCounter.innerHTML = max; // Update the counter when the user add or delete some characters.
+		/*
+		 * If the max number of characters is exceeded, disable the submit input and change the colour of the counter.
+		 * Else, enable the submit input and set the colour of the counter to its initial value.
+		 */
+		if (max < 0) {
+			textAreaCounter.classList.add('message-counter--warning');
+			sendMessage.setAttribute('disabled', 'disabled');
+		} else {
+			textAreaCounter.classList.remove('message-counter--warning');
+			sendMessage.removeAttribute('disabled');
 		}
 	}
 
-	// When someone is writting something in the textarea, call countLetters().
-	textArea.addEventListener("keydown", countLetters);
-}());
+	// When the user released a key, run countChars function.
+	textArea.addEventListener('keyup', countChars);
+
+})();
